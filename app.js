@@ -70,11 +70,7 @@ app.post('/api/message', function(req, res) {
  */
 function updateMessage(input, response) {
   var responseText = null;
-  if (!response.output.action === 'page_6') {'output': {
-        'text': 'Here you go: ' + '<a href="http://trains.gatech.edu/WLPDcatalog/index.html#6">WLPD Catalog</a>.'
-      }};
-    
-  else if (!response.output) {
+  if (!response.output) {
     response.output = {};
   } else {
     return response;
