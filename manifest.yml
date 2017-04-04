@@ -1,6 +1,6 @@
 ---
 declared-services:
-  my-conversation-service:
+  conversation-bk:
     label: conversation
     plan: free
 applications:
@@ -10,6 +10,6 @@ applications:
   memory: 256M
   instances: 1
   services:
-  - my-conversation-service
+  - conversation-bk
   env:
     NPM_CONFIG_PRODUCTION: false
