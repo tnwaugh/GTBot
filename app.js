@@ -91,7 +91,7 @@ function updateMessage(input, response) {
     }
   }
   response.output.text = responseText;
-  return "this is a test".;
+  return response;
 }
 
 module.exports = app;
