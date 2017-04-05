@@ -70,7 +70,11 @@ app.post('/api/message', function(req, res) {
  */
 function updateMessage(input, response) {
   var responseText = null;
-  if (!response.output) {
+  var responseAction = null;
+  if (response.output.action === 'display_time') {
+    // User asked what time it is, so we output the local system time.
+    console.log('The current time is ' + new Date().toLocaleTimeString()); }
+  else if (!response.output) {
     response.output = {};
   } else {
     return response;
@@ -91,6 +95,7 @@ function updateMessage(input, response) {
     }
   }
   response.output.text = responseText;
+  response.output.action = responseAction;
   return response;
 }
 
