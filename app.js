@@ -73,7 +73,7 @@ function updateMessage(input, response) {
   if (!response.output) {
     response.output = {};
   } else {
-    return "This is a test.";
+    return response;
   }
   if (response.intents && response.intents[0]) {
     var intent = response.intents[0];
@@ -91,7 +91,7 @@ function updateMessage(input, response) {
     }
   }
   response.output.text = responseText;
-  return response;
+  return "this is a test".;
 }
 
 module.exports = app;
