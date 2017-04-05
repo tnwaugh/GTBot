@@ -73,7 +73,7 @@ function updateMessage(input, response) {
   if (!response.output) {
     response.output = {};
   } else {
-    return response;
+    return "This is a test.";
   }
   if (response.intents && response.intents[0]) {
     var intent = response.intents[0];
