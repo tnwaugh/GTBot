@@ -69,20 +69,17 @@ app.post('/api/message', function(req, res) {
  * @return {Object}          The response with the updated message
  */
 function updateMessage(input, response) {
-  var responseAction = null;
-  if (response.output.action === 'display_time') {
-    return res.json({
-      'output': {
-        'text': 'The app has not been configured with a <b>WORKSPACE_ID</b> environment variable. Please refer to the ' + '<a href="https://github.com/watson-developer-cloud/conversation-simple">README</a> documentation on how to set this variable. <br>' + 'Once a workspace has been defined the intents may be imported from ' + '<a href="https://github.com/watson-developer-cloud/conversation-simple/blob/master/training/car_workspace.json">here</a> in order to get a working application.'
-      }
-    });
-  }
+
   var responseText = null;
   if (!response.output) {
     response.output = {};
   } else {
     return response;
   }
+  
+  var responseAction = null;
+  if (response.output.action === 'display_time') {responseText = 'I understood your intent was '}
+    
   if (response.intents && response.intents[0]) {
     var intent = response.intents[0];
     // Depending on the confidence of the response the app can return different messages.
