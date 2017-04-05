@@ -71,14 +71,15 @@ app.post('/api/message', function(req, res) {
 function updateMessage(input, response) {
 
   var responseText = null;
+  var responseAction = null;
+  if (response.output.action === 'display_time') {responseText = 'I understood your intent was '}
   if (!response.output) {
     response.output = {};
   } else {
     return response;
   }
   
-  var responseAction = null;
-  if (response.output.action === 'display_time') {responseText = 'I understood your intent was '}
+
     
   if (response.intents && response.intents[0]) {
     var intent = response.intents[0];
