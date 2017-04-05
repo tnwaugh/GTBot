@@ -71,10 +71,6 @@ app.post('/api/message', function(req, res) {
 function updateMessage(input, response) {
 
   var responseText = null;
-  var responseAction = null;
-  if (response.output.action === 'display_time') { 'output': {
-        'text': 'The app has not been configured with a <b>WORKSPACE_ID</b> environment variable. Please refer to the ' + '<a href="https://github.com/watson-developer-cloud/conversation-simple">README</a> documentation on how to set this variable. <br>' + 'Once a workspace has been defined the intents may be imported from ' + '<a href="https://github.com/watson-developer-cloud/conversation-simple/blob/master/training/car_workspace.json">here</a> in order to get a working application.'
-      }    }
   if (!response.output) {
     response.output = {};
   } else {
@@ -99,7 +95,6 @@ function updateMessage(input, response) {
     }
   }
   response.output.text = responseText;
-  response.output.action = responseAction;
   return response;
 }
 
